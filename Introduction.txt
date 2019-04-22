@@ -6,7 +6,7 @@ Questions
 42: Integer
 09/02/1945: Date
 98.7: Float
-$15.99: Decimal
+$15.99: Numeric (5.2)
 
 
 2. Explain when a database would be used. Explain when a text file would be used.
@@ -47,12 +47,21 @@ The three main data types are:
      SELECT date, amount
      FROM payments;
 
+date	                        amount
+2016-05-01T00:00:00.000Z	1500.0000
+2016-05-10T00:00:00.000Z	37.0000
+2016-05-15T00:00:00.000Z	124.9300
+2016-05-23T00:00:00.000Z	54.7200
+
 This first table will have the columns dates and amounts selected from the payments database. 
 
 
      SELECT amount
      FROM payments
      WHERE amount > 500;
+
+amount
+1500.0000
 
 In that case, we will select the column amounts, from the payments db, but only those above 500. 
 
@@ -61,6 +70,9 @@ In that case, we will select the column amounts, from the payments db, but only 
      FROM payments
      WHERE payee = 'Mega Foods';
 
+date	                        payee	        amount	        memo
+2016-05-15T00:00:00.000Z	Mega Foods	124.9300	Groceries
+
 In that case, every information from payments to 'Mega Foods' will be selected. 
 
 
@@ -68,20 +80,32 @@ In that case, every information from payments to 'Mega Foods' will be selected.
 
 - The email and sign-up date for the user named DeAndre Data.
 
-	SELECT email, signupdate 
+	SELECT email, signup 
 	FROM users
 	WHERE name = 'DeAndre Data'
 
 
+email	                signup
+datad@comcast.net	2008-01-20T00:00:00.000Z
+
+
 - The user ID for the user with email 'aleesia.algorithm@uw.edu'.
 
-	SELECT userid
+	SELECT email
 	FROM users
-	WHERE email = 'aleesia.algorithm@uw.edu'
+	WHERE email = 'aleesia.algorithm@uw.edu';
+
+email
+aleesia.algorithm@uw.edu
 
 
 - All the columns for the user ID equal to 4.
 
 	SELECT *
 	FROM users
-	WHERE ID >= 4
+	WHERE userid = 4;
+
+userid	name	        email	                signup
+4	Brandy Boolean	bboolean@nasa.gov	1999-10-15T00:00:00.000Z
+
+
