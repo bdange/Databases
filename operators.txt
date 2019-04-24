@@ -2,9 +2,8 @@ Exercises
 
 1. Write out a generic SELECT statement.
 
-SELECT id 
-FROM books 
-WHERE id LIKE '&1';
+SELECT column1
+FROM table1;
 
 
 2. Create a fun way to remember the order of operations in a SELECT statement, such as a mnemonic.
@@ -114,7 +113,10 @@ SELECT name FROM cats;
 
 - SELECT name FROM cats WHERE gender = ‘F’;
 
-I receive an error message "Query Error: error: column "‘f’" does not exist"
+| name     |
+| -------- |
+| Seashell |
+| Nala     |
 
 
 - SELECT name FROM cats WHERE age <> 3;
@@ -129,4 +131,7 @@ I receive an error message "Query Error: error: column "‘f’" does not exist"
 
 - SELECT ID FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
 
-Once again I have an error message "Query Error: error: column "‘mushi’" does not exist"
+| id  |
+| --- |
+| 3   |
+| 4   |
