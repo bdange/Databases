@@ -1,0 +1,132 @@
+Exercises
+
+1. Write out a generic SELECT statement.
+
+SELECT id 
+FROM books 
+WHERE id LIKE '&1';
+
+
+2. Create a fun way to remember the order of operations in a SELECT statement, such as a mnemonic.
+
+I have created a quick song, "S F W LIKE AND OR Y".
+
+
+3. Given this dogs table, write queries to select the following pieces of data:
+
+- Display the name, gender, and age of all dogs that are part Labrador.
+
+SELECT name, gender, age
+FROM dogs
+WHERE breed LIKE 'labrador%';
+
+
+- Display the ids of all dogs that are under 1 year old.
+
+SELECT id
+FROM dogs
+WHERE age < 1; 
+
+
+- Display the name and age of all dogs that are female and over 35lbs.
+
+SELECT name, age
+FROM dogs
+WHERE gender LIKE 'F'
+AND weight > 35;
+
+
+- Display all of the information about all dogs that are not Shepherd mixes.
+
+SELECT *
+FROM dogs 
+WHERE breed NOT LIKE '%shepherd%';
+
+
+- Display the id, age, weight, and breed of all dogs that are either over 60lbs or Great Danes.
+
+SELECT id, age, weight, breed
+FROM dogs
+WHERE weight > 60 
+OR breed LIKE 'great dane';  
+
+
+4. Given this cats table, what records are returned from these queries?
+
+- SELECT name, adoption_date FROM cats;
+
+| name     | adoption_date            |
+| -------- | ------------------------ |
+| Mushi    | 2016-03-22T00:00:00.000Z |
+| Seashell |                          |
+| Azul     | 2016-04-17T00:00:00.000Z |
+| Victoire | 2016-09-01T00:00:00.000Z |
+| Nala     |                          |
+
+
+- SELECT name, age FROM cats;
+
+| name     | age |
+| -------- | --- |
+| Mushi    | 1   |
+| Seashell | 7   |
+| Azul     | 3   |
+| Victoire | 7   |
+| Nala     | 1   |
+ 
+
+5. From the cats table, write queries to select the following pieces of data.
+
+- Display all the information about all of the available cats.
+
+SELECT * FROM cats; 
+
+
+- Display the name and sex of all cats who are 7 years old.
+
+SELECT name, gender FROM cats WHERE age = 7;  
+
+
+- Find all of the names of the cats, so you don’t choose duplicate names for new cats.
+
+SELECT name FROM cats; 
+
+
+6. List each comparison operator and explain when you would use it. Include a real world example for each.
+
+. < Less than - When you select integers less than a specified one. 
+. > Greater than - When you select integers greater than a specified one.
+. = Equal to - When you select integers equal to a specified one.
+. <= Equal or less than - When you select integers equal or less than a specified one.
+. >= Equal or greater than - When you select integers equal or greater than a specified one.
+. != && <> Not equal to - When a select integers not equal to a specified one.
+. 'Like' - Used to match a string with close pattern. 
+. 'BETWEEN ... AND ...' - Used to specify a certain data range. 
+. 'IS DISTINCT FROM' - Equivalent to <> when an input could be null. 
+. 'IS TRUE / IS FALSE' - Determine if the result of and input is either true or false, but not null. 
+. 'IS (NOT) NULL' - Determine if the result is null. 
+. 'AND' - add another condition to be true. 
+. 'OR' - requires to have at least one condition to be true. 
+. 'NOT' - requires the expression to be false. 
+
+
+7. From the cats table, what data is returned from these queries?
+
+- SELECT name FROM cats WHERE gender = ‘F’;
+
+I receive an error message "Query Error: error: column "‘f’" does not exist"
+
+
+- SELECT name FROM cats WHERE age <> 3;
+
+| name     |
+| -------- |
+| Mushi    |
+| Seashell |
+| Victoire |
+| Nala     |
+
+
+- SELECT ID FROM cats WHERE name != ‘Mushi’ AND gender = ‘M’;
+
+Once again I have an error message "Query Error: error: column "‘mushi’" does not exist"
